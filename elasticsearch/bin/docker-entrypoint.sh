@@ -97,4 +97,8 @@ if [[ "$(id -u)" == "0" ]]; then
   fi
 fi
 
+sudo cgcreate -telasticsearch:elasticsearch: -a elasticsearch::elasticsearch: -d 777 -f 777 -g cpu,cpuset,cpuacct,blkio:/ajdk_multi_tenant
+sudo cat /sys/fs/cgroup/cpuset/cpuset.cpus > /sys/fs/cgroup/cpuset/ajdk_multi_tenant/cpuset.cpus
+sudo cat /sys/fs/cgroup/cpuset/cpuset.mems > /sys/fs/cgroup/cpuset/ajdk_multi_tenant/cpuset.mems
+
 run_as_other_user_if_needed /usr/share/elasticsearch/bin/elasticsearch "${es_opts[@]}"
