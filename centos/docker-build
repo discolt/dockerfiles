@@ -1,0 +1,1 @@
+docker build --no-cache -t registry.cn-shenzhen.aliyuncs.com/elastic-group/centos7:jdk17 .

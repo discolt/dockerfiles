@@ -1,12 +1,12 @@
-FROM registry.cn-shenzhen.aliyuncs.com/elastic-group/centos7:jdk15
+FROM registry.cn-shenzhen.aliyuncs.com/elastic-group/centos7:jdk17
 
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 
 WORKDIR /usr/share/elasticsearch
 
 # Download Elasticsearch release
-RUN cd /opt && curl --retry 8 -s -L -O https://ebase.oss-cn-shanghai.aliyuncs.com/release/elk/v6.8.23/elasticsearch-6.8.23.tar.gz && cd -
-RUN tar zxf /opt/elasticsearch-6.8.23.tar.gz --strip-components=1
+RUN cd /opt && curl --retry 8 -s -L -O https://ebase.oss-cn-shanghai.aliyuncs.com/release/elk/v7.17.9/elasticsearch-7.17.9-linux-x86_64.tar.gz && cd -
+RUN tar zxf /opt/elasticsearch-7.17.9-linux-x86_64.tar.gz --strip-components=1
 RUN grep ES_DISTRIBUTION_TYPE=tar /usr/share/elasticsearch/bin/elasticsearch-env \
     && sed -ie 's/ES_DISTRIBUTION_TYPE=tar/ES_DISTRIBUTION_TYPE=docker/' /usr/share/elasticsearch/bin/elasticsearch-env
 RUN mkdir -p config data logs
@@ -35,7 +35,7 @@ LABEL org.label-schema.build-date="2022-01-06T21:30:50.087716Z" \
   org.label-schema.vcs-ref="4f67856884ff580d8b48a858411b8c17cb0f8cdb" \
   org.label-schema.vcs-url="https://github.com/elastic/elasticsearch" \
   org.label-schema.vendor="Elastic" \
-  org.label-schema.version="6.8.23" \
+  org.label-schema.version="7.17.9" \
   org.opencontainers.image.created="2022-01-06T21:30:50.087716Z" \
   org.opencontainers.image.documentation="https://www.elastic.co/guide/en/elasticsearch/reference/index.html" \
   org.opencontainers.image.licenses="Elastic-License" \
@@ -44,7 +44,7 @@ LABEL org.label-schema.build-date="2022-01-06T21:30:50.087716Z" \
   org.opencontainers.image.title="Elasticsearch" \
   org.opencontainers.image.url="https://www.elastic.co/products/elasticsearch" \
   org.opencontainers.image.vendor="Elastic" \
-  org.opencontainers.image.version="6.8.23"
+  org.opencontainers.image.version="7.17.9"
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 # Dummy overridable parameter parsed by entrypoint

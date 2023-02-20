@@ -1,2 +1,2 @@
-docker build --no-cache -t  registry.cn-shenzhen.aliyuncs.com/elastic-group/elasticsearch:6.8.23 .
-docker push  registry.cn-shenzhen.aliyuncs.com/elastic-group/elasticsearch:6.8.23 
+docker build --no-cache -t  registry.cn-shenzhen.aliyuncs.com/elastic-group/elasticsearch:7.17.9 .
+docker push  registry.cn-shenzhen.aliyuncs.com/elastic-group/elasticsearch:7.17.9
