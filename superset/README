@@ -1,0 +1,3 @@
+elasticsearch-dbapi.tar.gz : 改动 增加Origin Header 解决白名单问题
+security1.py: 增加url token验证(自动登录)
+docker image version:2.0.5  为跑通的版本
